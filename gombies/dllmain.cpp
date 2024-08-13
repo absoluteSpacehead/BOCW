@@ -15,8 +15,7 @@ void (*Cbuf_AddText)(QWORD param_1, const char* param_2) = nullptr;
 
 DWORD MainThread(LPVOID hModule)
 {
-    if (!Cbuf_AddText)
-        Cbuf_AddText = Offset<void(QWORD, const char*)>(0x16F3A10);
+    Cbuf_AddText = Offset<void(QWORD, const char*)>(0x16F3A10);
 
     *Offset<DWORD>(0x65259E4) = 0x40C0;
     *Offset<DWORD>(0xB7D18A0) = 0;
